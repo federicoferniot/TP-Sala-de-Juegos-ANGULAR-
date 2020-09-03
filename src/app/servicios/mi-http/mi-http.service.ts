@@ -1,7 +1,7 @@
 import { log } from 'util';
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponseBase } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -11,7 +11,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class MiHttpService {
 
-  constructor( public http: Http ) { }
+  constructor( public http: HttpClient ) { }
 
   public httpGetP ( url: string)
   {
@@ -32,7 +32,7 @@ export class MiHttpService {
     });
   }
 
-  public httpGetO ( url: string): Observable<Response>
+  public httpGetO ( url: string): Observable<Promise<HttpResponseBase>>
   {
     return this.http.get( url )
       .map( ( res: Response ) => res.json())
