@@ -6,27 +6,30 @@
   <mat-sidenav #sidenav class="side-nav-left" position="start" role="directory" [opened]="opened">
     <div class="backdrop" (click)="opened = false"></div>
       <div class="side-nav-content">
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Menú de Juegos
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-action-list>
-              <button mat-list-item>
-                <span>Velocidad y agilidad aritmética</span>
-              </button>
-              <button mat-list-item>
-                <span>Piedra, Papel o Tijera</span>
-              </button>
-              <button mat-list-item>
-                <span>Adivina el número secreto</span>
-              </button>
-            </mat-action-list>
-          </mat-expansion-panel>
-        </mat-accordion>
         <mat-action-list>
+          <button mat-list-item (click)="toggleSideBar()">
+            <mat-icon>keyboard_backspace</mat-icon>
+          </button>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Menú de Juegos
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-action-list>
+                <button mat-list-item>
+                  <span>Velocidad y agilidad aritmética</span>
+                </button>
+                <button mat-list-item>
+                  <span>Piedra, Papel o Tijera</span>
+                </button>
+                <button mat-list-item>
+                  <span>Adivina el número secreto</span>
+                </button>
+              </mat-action-list>
+            </mat-expansion-panel>
+          </mat-accordion>
           <button mat-list-item>
             <span>Mis datos</span>
           </button>

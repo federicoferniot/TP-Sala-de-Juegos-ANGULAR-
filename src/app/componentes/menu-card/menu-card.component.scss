@@ -1,0 +1,55 @@
+mat-card {
+    border-radius: 10px; /* 5px rounded corners */
+}
+
+mat-card:hover{
+  background-color: lightcyan;
+  box-shadow: 10px 10px 10px rgba(145, 92, 182, .4);
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+p {
+  text-align-last: center;
+}
+
+.img-agilidad {
+  background-image: url('/assets/imagenes/cerebro.png');
+  background-size: cover;
+}
+
+.img-ppt {
+  background-image: url('/assets/imagenes/ppt.png');
+  background-size: cover;
+}
+
+.img-adivina {
+  background-image: url('/assets/imagenes/adivina.png');
+  background-size: cover;
+}
+
+.mat-card-header {
+  align-content: center;
+}
+
+.glow {
+  margin: 5%;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}

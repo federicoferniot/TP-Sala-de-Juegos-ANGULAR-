@@ -1,70 +1,75 @@
-<div class="container menu">
-<div class="content" fxLayoutAlign="space-around center" fxLayout="row wrap" fxLayoutGap="20px grid">
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-agilidad"></div>
-        <mat-card-title>Velocidad y agilidad aritmética</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juego de agilidad mental</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-ppt"></div>
-        <mat-card-title>Piedra Papel o Tijera</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juega contra la máquina</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-adivina"></div>
-        <mat-card-title>Adivina el número secreto</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juego de estrategia</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-agilidad"></div>
-        <mat-card-title>Memo Test</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juego de agilidad mental</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-ppt"></div>
-        <mat-card-title>Ta Te Ti</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juega contra la máquina</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="img-adivina"></div>
-        <mat-card-title>Juego del alumno</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Juego de estrategia</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
+<div class="title" style="text-align:center">
+  <h1 class="glow">
+   Elige tu juego
+  </h1>
 </div>
+<div class="container">
+  <div class="content" fxLayoutAlign="space-around center" fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card >
+        <mat-card-header routerLink="/Juegos/Agilidad">
+          <div mat-card-avatar class="img-agilidad"></div>
+          <mat-card-title>Velocidad y agilidad aritmética</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juego de agilidad mental</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card routerLink="/Juegos/Ppt">
+        <mat-card-header>
+          <div mat-card-avatar class="img-ppt"></div>
+          <mat-card-title>Piedra Papel o Tijera</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juega contra la máquina</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card routerLink="/Juegos/Adivina">
+        <mat-card-header>
+          <div mat-card-avatar class="img-adivina"></div>
+          <mat-card-title>Adivina el número secreto</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juego de estrategia</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card routerLink="/Juegos/Memo">
+        <mat-card-header>
+          <div mat-card-avatar class="img-agilidad"></div>
+          <mat-card-title>Memo Test</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juego de agilidad mental</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card routerLink="/Juegos/Tateti">
+        <mat-card-header>
+          <div mat-card-avatar class="img-ppt"></div>
+          <mat-card-title>Ta Te Ti</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juega contra la máquina</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%">
+      <mat-card routerLink="/Juegos">
+        <mat-card-header>
+          <div mat-card-avatar class="img-adivina"></div>
+          <mat-card-title>Juego del alumno</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Juego de estrategia</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
