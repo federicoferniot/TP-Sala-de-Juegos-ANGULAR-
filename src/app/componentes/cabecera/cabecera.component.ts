@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../servicios/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cabecera',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
+  }
+
+  LoggedIn(): boolean{
+    return this.authService.isLoggedIn;
+  }
+
+  Logout(){
+    this.authService.logout().then( res => {
+      this.router.navigate((['/Login']));
+    });
   }
 
 }

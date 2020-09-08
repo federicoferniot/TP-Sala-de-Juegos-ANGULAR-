@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -7,6 +8,19 @@ import { ListadoDeResultadosComponent } from './componentes/listado-de-resultado
 import { LoginComponent } from './componentes/login/login.component';
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list'
 
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
@@ -54,6 +68,16 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 
+var config = {
+  apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
+  authDomain: "pruebaapp-cdfc4.firebaseapp.com",
+  databaseURL: "https://pruebaapp-cdfc4.firebaseio.com",
+  projectId: "pruebaapp-cdfc4",
+  storageBucket: "pruebaapp-cdfc4.appspot.com",
+  messagingSenderId: "351570567450",
+  appId: "1:351570567450:web:6c03fcc1c2a45a5a05cca3"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +109,20 @@ import { SexoPipe } from './pipes/sexo.pipe';
     FormsModule,
     RuteandoModule,
     HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule,
+    MatGridListModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })

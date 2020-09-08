@@ -8,6 +8,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  opened = false;
+
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
@@ -29,6 +31,12 @@ export class MenuComponent implements OnInit {
           this.router.navigate(['/Juegos/AgilidadaMasListado']);
         break;
     }
+  }
+
+  toggleSideBar() {
+
+    this.opened = !this.opened;
+    console.log(this.opened);
   }
 
 }
