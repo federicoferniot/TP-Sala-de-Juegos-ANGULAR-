@@ -14,13 +14,17 @@ span.psw {
     padding-right: 10px;
 }
 
-.bg{
-    background-color: palegreen;
-}
-
 .login-main{
     margin-top: 10%;
     min-width: 40%;
+}
+
+.btn-cancelar {
+    margin-left: 1%;
+}
+
+mat-card {
+    box-shadow: 5px 5px black;
 }
 
 /* Change styles for span and cancel button on extra small screens */

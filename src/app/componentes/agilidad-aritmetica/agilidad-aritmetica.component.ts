@@ -9,43 +9,48 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
   styleUrls: ['./agilidad-aritmetica.component.scss']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
+  public progressValue;
    @Output() 
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   nuevoJuego : JuegoAgilidad;
-  ocultarVerificar: boolean;
-  Tiempo: number;
+  mostrarVerificar: boolean;
+  mostrarProgressBar: boolean;
+  tiempo: number;
   repetidor:any;
   private subscription: Subscription;
   ngOnInit() {
   }
    constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5; 
+    this.progressValue = 100;
+    this.mostrarVerificar=false;
+    this.mostrarProgressBar=false;
+    this.tiempo=10; 
     this.nuevoJuego = new JuegoAgilidad();
     console.info("Inicio agilidad");  
   }
   NuevoJuego() {
-    this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
+    this.mostrarVerificar=true;
+    this.mostrarProgressBar=true;
+    this.repetidor = setInterval(()=>{ 
       
-      this.Tiempo--;
-      console.log("llego", this.Tiempo);
-      if(this.Tiempo==0 ) {
+      this.tiempo = Math.round((this.tiempo-0.1)*10)/10;
+      this.progressValue = this.tiempo*10;
+      console.log("llego", this.tiempo);
+      if(this.tiempo==0.0 ) {
         clearInterval(this.repetidor);
-        this.verificar();
-        this.ocultarVerificar=true;
-        this.Tiempo=5;
+        this.Verificar();
+        this.mostrarVerificar=false;
+        this.mostrarProgressBar=false;
+        this.progressValue=100;
+        this.tiempo=10;
       }
-      }, 900);
+    }, 100);
 
   }
-  verificar()
+  Verificar()
   {
-    this.ocultarVerificar=false;
+    this.mostrarVerificar=false;
+    this.mostrarProgressBar=false;
     clearInterval(this.repetidor);
-   
-
-   
   }  
-
 }

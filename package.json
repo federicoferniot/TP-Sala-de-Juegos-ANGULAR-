@@ -38,6 +38,8 @@
     "firebase": "^7.19.1",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^1.9.1",
+    "primeflex": "^2.0.0",
+    "primeng": "^10.0.0",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.0.0-rc.0",
     "tslib": "^2.0.0",
