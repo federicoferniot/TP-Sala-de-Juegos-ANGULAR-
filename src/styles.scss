@@ -4,3 +4,21 @@
 
 html, body { height: 100%; background-image: url(/assets/imagenes/background.jpg); }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.notif-success {
+    color: #155724 !important;
+    background-color: #78e692 !important;
+    border-color: #c3e6cb !important;
+    .mat-simple-snackbar-action {
+        color: #155724 !important;
+    }
+}
+
+.notif-warn {
+    color: #571515 !important;
+    background-color: #e99b9b !important;
+    border-color: #c3e6cb !important;
+    .mat-simple-snackbar-action {
+        color: #571515 !important;
+    }
+}

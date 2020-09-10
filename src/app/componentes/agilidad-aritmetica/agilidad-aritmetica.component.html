@@ -1,28 +1,18 @@
-<div class="container">
-  <div fxLayout="row" fxLayoutAlign="center center">
-    <mat-card>
-      <mat-card-content fxLayout="column">
-        <div fxLayout="row">
-          <mat-form-field appearance="fill">
-            <input matInput type="text">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <input matInput type="text">
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <input matInput type="text">
-          </mat-form-field>
-          <label>=</label>
-          <mat-form-field appearance="fill">
-            <input matInput type="text">
-          </mat-form-field>
-        </div>
-        <mat-progress-bar mode="determinate" *ngIf="mostrarProgressBar" [value]="progressValue"></mat-progress-bar>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button *ngIf="!mostrarVerificar" (click)="NuevoJuego()" color="primary">Nuevo Juego</button>
-        <button mat-raised-button *ngIf="mostrarVerificar" (click)="Verificar()" color="accent">Verificar</button>
-      </mat-card-actions>
-    </mat-card>
+<div fxLayout="column" class="pizarra">
+  Agilidad aritmética
+  <div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="column" class="cuenta">
+        <input disabled [(ngModel)]="juego.numeroUno" matInput class="pizarra-element">
+        <input disabled [(ngModel)]="juego.operador" matInput class="pizarra-element">
+        <input disabled [(ngModel)]="juego.numeroDos" matInput class="pizarra-element">
+        <input [disabled]="!estaJugando" [(ngModel)]="juego.numeroIngresado" placeholder="Ingrese el resultado" type="number" matInput class="pizarra-element resultado">
+      </div>
+    </div>
+    <div class="acciones" fxLayout="column" fxLayoutAlign="center center">
+      <button mat-raised-button *ngIf="!estaJugando" (click)="nuevoJuego()" color="primary">Nuevo Juego</button>
+      <button mat-raised-button *ngIf="estaJugando" (click)="verificar()" color="accent">Verificar</button>
+      <mat-progress-bar mode="determinate" *ngIf="estaJugando" [value]="progressValue"></mat-progress-bar>
+    </div>
   </div>
 </div>

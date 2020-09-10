@@ -22,7 +22,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import {InputTextModule} from 'primeng/inputtext';
 
 // import { AccordionModule } from 'ngx-bootstrap';
@@ -129,6 +130,7 @@ var config = {
     MatGridListModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatSnackBarModule,
     InputTextModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

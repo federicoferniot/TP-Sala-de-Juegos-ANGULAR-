@@ -1,8 +1,9 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -12,45 +13,55 @@ export class AgilidadAritmeticaComponent implements OnInit {
   public progressValue;
    @Output() 
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
-  mostrarVerificar: boolean;
-  mostrarProgressBar: boolean;
+  juego : JuegoAgilidad;
+  numeroUno;
+  estaJugando: boolean;
   tiempo: number;
   repetidor:any;
   private subscription: Subscription;
   ngOnInit() {
   }
-   constructor() {
-    this.progressValue = 100;
-    this.mostrarVerificar=false;
-    this.mostrarProgressBar=false;
-    this.tiempo=10; 
-    this.nuevoJuego = new JuegoAgilidad();
-    console.info("Inicio agilidad");  
+   constructor(private snackBar: MatSnackBar) {
+     this.progressValue = 100;
+     this.estaJugando=false;
+     this.tiempo=10; 
+     this.juego = new JuegoAgilidad();
+     console.info("Inicio agilidad");
+     console.info(this.juego.numeroUno);
   }
-  NuevoJuego() {
-    this.mostrarVerificar=true;
-    this.mostrarProgressBar=true;
+
+  nuevoJuego() {
+    this.estaJugando=true;
+    this.juego.nuevoJuego();
     this.repetidor = setInterval(()=>{ 
       
       this.tiempo = Math.round((this.tiempo-0.1)*10)/10;
       this.progressValue = this.tiempo*10;
       console.log("llego", this.tiempo);
       if(this.tiempo==0.0 ) {
-        clearInterval(this.repetidor);
-        this.Verificar();
-        this.mostrarVerificar=false;
-        this.mostrarProgressBar=false;
-        this.progressValue=100;
-        this.tiempo=10;
+        this.verificar();
       }
     }, 100);
 
   }
-  Verificar()
+  verificar()
   {
-    this.mostrarVerificar=false;
-    this.mostrarProgressBar=false;
+    this.estaJugando=false;
     clearInterval(this.repetidor);
+    this.progressValue=100;
+    this.tiempo=10;
+    this.juego.terminarJuego();
+    if(this.juego.gano){
+      this.snackBar.open("Ganaste!", "X", {
+        duration: 2000,
+        panelClass: 'notif-success'
+      });
+    }
+    else{
+      this.snackBar.open("Perdiste!", "X", {
+        duration: 2000,
+        panelClass: 'notif-warn'
+      });
+    }
   }  
 }
