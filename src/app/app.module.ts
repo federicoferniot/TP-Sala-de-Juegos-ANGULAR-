@@ -73,6 +73,8 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { AlertComponent } from './componentes/alert/alert.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
+import { PptComponent } from './componentes/ppt/ppt.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -110,7 +112,9 @@ var config = {
     InputJugadoresComponent,
     SexoPipe,
     AlertComponent,
-    RecuperarComponent
+    RecuperarComponent,
+    PptComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+    <mat-card>
+        <mat-card-header fxLayoutAlign="center center">
+        </mat-card-header>
+        <mat-card-content>
+            <div class="juego" fxLayout="row" fxLayoutAlign="center center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <p>Elegiste</p>
+                            <img *ngIf="juego.elementoSeleccionado == 'papel'" src="/assets/imagenes/papel.png">
+                            <img *ngIf="juego.elementoSeleccionado == 'piedra'" src="/assets/imagenes/piedra.png">
+                            <img *ngIf="juego.elementoSeleccionado == 'tijera'" src="/assets/imagenes/tijera.png">
+                        </div>
+                        <div class="col-6">
+                            <p>La máquina elige</p>
+                            <img *ngIf="juego.elementoMaquina == 'papel'" src="/assets/imagenes/papel.png">
+                            <img *ngIf="juego.elementoMaquina == 'piedra'" src="/assets/imagenes/piedra.png">
+                            <img *ngIf="juego.elementoMaquina == 'tijera'" src="/assets/imagenes/tijera.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center center">
+            <button [disabled]="!juego.estaJugando" (click)="seleccionar('papel')" class="round">
+                <img src="/assets/imagenes/papel.png">
+            </button>
+            <button [disabled]="!juego.estaJugando" (click)="seleccionar('piedra')" class="round">
+                <img src="/assets/imagenes/piedra.png">
+            </button>
+            <button [disabled]="!juego.estaJugando" (click)="seleccionar('tijera')" class="round">
+                <img src="/assets/imagenes/tijera.png">
+            </button>
+        </mat-card-actions>
+        <mat-card-footer fxLayoutAlign="center center">
+            <button class="accion" *ngIf="!juego.estaJugando" mat-raised-button color="primary" (click)="nuevoJuego()">Nuevo Juego</button>
+        </mat-card-footer>
+
+    </mat-card>
+</div>

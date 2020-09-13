@@ -1,0 +1,36 @@
+.casilla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    font-size: 5vw;
+    border: 1px solid black;
+    min-height: 10vw;
+    max-height: 10vw;
+    min-width: 10vw;
+    max-width: 10vw;
+}
+
+.cassilla:hover{
+    cursor: pointer;
+    box-shadow: 5px 5px black;
+}
+
+.tabla {
+    margin-top: 5%;
+    align-items: center;
+}
+
+.fila{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:disabled{
+    color: black;
+}
+
+.accion{
+    margin-top: 5%;
+}

@@ -1,4 +1,6 @@
-export class JuegoAgilidad {
+import { Juego } from './juego';
+
+export class JuegoAgilidad extends Juego{
     public numeroIngresado: number;
     public numeroUno: number;
     public numeroDos: number;
@@ -30,9 +32,13 @@ export class JuegoAgilidad {
     }
 
     terminarJuego(){
-        if(this.resultado == this.numeroIngresado){
+        if(this.verificar()){
             this.gano = true;
         }
+    }
+
+    verificar():boolean{
+        return this.resultado == this.numeroIngresado
     }
 
     private numeroRandom(min: number, max: number): number {
