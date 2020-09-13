@@ -77,7 +77,7 @@ export class JuegoMemoria extends Juego {
 
     sonIgualesSeleccionadas() {
         this.pensando = true;
-        delay(2000).then(() => { })
+        delay(1000).then(() => { })
         return this.cartas[this.primerOpcion].contenido == this.cartas[this.segundaOpcion].contenido;
     }
 

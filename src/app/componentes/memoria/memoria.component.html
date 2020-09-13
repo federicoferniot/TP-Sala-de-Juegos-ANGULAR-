@@ -5,7 +5,7 @@
     <div class="container" fxLayout="row wrap" fxLayoutGap="0px grid" fxLayoutAlign="center center">
         <div *ngFor="let carta of juego.cartas; let i = index">
             <div class="flip-card">
-                <div [class]="{'flip-card-action': carta.estaGirada}" class="flip-card-inner" (click)="!carta.encontrada && !carta.estaGirada && accion(i)">
+                <div [class]="{'flip-card-action': carta.estaGirada}" class="flip-card-inner" (click)="juego.enJuego && !carta.encontrada && !carta.estaGirada && accion(i)">
                   <div class="flip-card-front">
                     <img src="/assets/imagenes/memoria/pregunta.png" alt="Avatar">
                   </div>
