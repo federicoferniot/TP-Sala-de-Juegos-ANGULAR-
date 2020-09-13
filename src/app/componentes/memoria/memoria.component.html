@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div class="timer" [class]="{'critical':tiempoRestante<10}">
+        {{tiempoRestante}}
+    </div>
+    <div class="container" fxLayout="row wrap" fxLayoutGap="0px grid" fxLayoutAlign="center center">
+        <div *ngFor="let carta of juego.cartas; let i = index">
+            <div class="flip-card">
+                <div [class]="{'flip-card-action': carta.estaGirada}" class="flip-card-inner" (click)="!carta.encontrada && !carta.estaGirada && accion(i)">
+                  <div class="flip-card-front">
+                    <img src="/assets/imagenes/memoria/pregunta.png" alt="Avatar">
+                  </div>
+                  <div class="flip-card-back">
+                      <img [src]="carta.contenido">
+                  </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div>
+        <button *ngIf="!juego.enJuego" mat-raised-button color="primary" (click)="nuevoJuego()">Nuevo Juego</button>
+    </div>
+</div>

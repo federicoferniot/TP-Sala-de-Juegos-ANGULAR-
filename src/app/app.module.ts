@@ -75,6 +75,7 @@ import { AlertComponent } from './componentes/alert/alert.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemoriaComponent } from './componentes/memoria/memoria.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -114,7 +115,8 @@ var config = {
     AlertComponent,
     RecuperarComponent,
     PptComponent,
-    TatetiComponent
+    TatetiComponent,
+    MemoriaComponent
   ],
   imports: [
     BrowserModule,

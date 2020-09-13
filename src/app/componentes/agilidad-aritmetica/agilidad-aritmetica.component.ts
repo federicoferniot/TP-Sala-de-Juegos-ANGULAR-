@@ -37,7 +37,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
       
       this.tiempo = Math.round((this.tiempo-0.1)*10)/10;
       this.progressValue = this.tiempo*10;
-      console.log("llego", this.tiempo);
       if(this.tiempo==0.0 ) {
         this.verificar();
       }

@@ -23,6 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { PptComponent } from 'app/componentes/ppt/ppt.component';
 import { TatetiComponent } from 'app/componentes/tateti/tateti.component';
+import { MemoriaComponent } from 'app/componentes/memoria/memoria.component';
 
 
 // declaro donde quiero que se dirija
@@ -47,7 +48,8 @@ const MiRuteo = [
       { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent },
       { path: 'Agilidad', component: AgilidadAritmeticaComponent },
       { path: 'Ppt', component: PptComponent },
-      { path: 'Tateti', component: TatetiComponent}]
+      { path: 'Tateti', component: TatetiComponent},
+      { path: 'Memoria', component: MemoriaComponent}]
   },
   { path: '**', component: ErrorComponent },
   { path: 'error', component: ErrorComponent }];
