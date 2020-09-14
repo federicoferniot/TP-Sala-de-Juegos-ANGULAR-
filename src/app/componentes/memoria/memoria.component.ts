@@ -52,4 +52,8 @@ export class MemoriaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void{
+    clearInterval(this.contador);
+  }
+
 }

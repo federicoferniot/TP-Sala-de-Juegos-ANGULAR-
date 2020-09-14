@@ -3,11 +3,63 @@ width: 80px;
 height: 70px;
 }
 
-.hero-text {
+.imagen{
+    background-color: red;
+}
+
+.titulo{
+    font-weight: bold;
+}
+
+
+.text{
     text-align: center;
+}
+
+mat-card{
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: cadetblue;
+    cursor: pointer;
+}
+
+mat-card-content{
+    padding: 10px;
+}
+
+mat-card:hover{
+    box-shadow: 5px 5px rebeccapurple;
+}
+
+
+mat-card:after {
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #100000;
-    }
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.4);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+   
+}
+/* on hover we animate the width to
+ * 100% and opacity to 0 so the element
+ * grows and fades out
+ */
+ mat-card:hover:after {
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0);
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}

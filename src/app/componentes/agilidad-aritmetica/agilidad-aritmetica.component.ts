@@ -18,7 +18,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
   estaJugando: boolean;
   tiempo: number;
   repetidor:any;
-  private subscription: Subscription;
   ngOnInit() {
   }
    constructor(private snackBar: MatSnackBar) {
@@ -62,5 +61,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
         panelClass: 'notif-warn'
       });
     }
-  }  
+  }
+  
+  ngOnDestroy(): void{
+    clearInterval(this.repetidor);
+  }
 }
