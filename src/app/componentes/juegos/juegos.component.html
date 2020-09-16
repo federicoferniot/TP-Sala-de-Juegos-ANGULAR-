@@ -1,2 +1,2 @@
-<app-menu></app-menu>
-<router-outlet></router-outlet>
+<app-menu [juego]="juego"></app-menu>
+<router-outlet (activate)="componentAdded($event)" (deactivate)="componentDestroyed($event)"></router-outlet>

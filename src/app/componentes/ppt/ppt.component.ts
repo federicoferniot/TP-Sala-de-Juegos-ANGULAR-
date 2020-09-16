@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JuegoPiedraPapelTijera } from 'app/clases/juego-piedra-papel-tijera';
+import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
   selector: 'app-ppt',
@@ -10,7 +11,7 @@ import { JuegoPiedraPapelTijera } from 'app/clases/juego-piedra-papel-tijera';
 export class PptComponent implements OnInit {
   public juego: JuegoPiedraPapelTijera;
 
-  constructor(private snackBar: MatSnackBar) { 
+  constructor(private snackBar: MatSnackBar, private jugadorService: JugadorService) { 
     this.juego = new JuegoPiedraPapelTijera();
   }
 
@@ -32,10 +33,12 @@ export class PptComponent implements OnInit {
     }
     else{
       if(resultado){
-        this.snackBar.open("Ganaste!", "X", {
+        let puntosAOtorgar = 10;
+        this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
           duration: 2000,
           panelClass: 'notif-success'
         });
+        this.jugadorService.otorgarPuntosJugadorActual('ppt', puntosAOtorgar);
       }
       else{
         this.snackBar.open("Perdiste!", "X", {

@@ -1,6 +1,7 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -12,9 +13,8 @@ export class AdivinaElNumeroComponent implements OnInit {
 
   juego: JuegoAdivina;
   Mensajes:string;
-  contador:number;
  
-  constructor(private snackBar: MatSnackBar) { 
+  constructor(private snackBar: MatSnackBar, private jugadorService: JugadorService) { 
     this.juego = new JuegoAdivina();
   }
 
@@ -24,11 +24,10 @@ export class AdivinaElNumeroComponent implements OnInit {
 
   verificar()
   {
-    this.contador++;
     if (this.juego.verificar()){
-      
-      this.enviarJuego.emit(this.nuevoJuego);
-      this.snackBar.open("Sos un Genio!!!", "X", {
+      let puntosAOtorgar = Math.floor(100/this.juego.intentos);
+      this.jugadorService.otorgarPuntosJugadorActual('adivina', puntosAOtorgar);
+      this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
         duration: 2000,
         panelClass: 'notif-success'
       });

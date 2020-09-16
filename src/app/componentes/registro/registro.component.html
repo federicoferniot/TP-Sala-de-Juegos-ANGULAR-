@@ -1,10 +1,25 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="main mat-elevation-z8">
+    <mat-spinner *ngIf="cargandoAvatars"></mat-spinner>
+    <mat-card *ngIf="!cargandoAvatars" class="main mat-elevation-z8">
         <mat-card-header>
             <mat-card-title>Registrarse</mat-card-title>
         </mat-card-header>
         <form [formGroup]="form">
             <mat-card-content fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="nombre" matInput [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                    <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                        <div *ngIf="f.nombre.errors.required">Debe ingresar un nombre</div>
+                    </div>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input formControlName="apellido" matInput [ngClass]="{ 'is-invalid': submitted && f.apellido.errors }">
+                    <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback">
+                        <div *ngIf="f.apellido.errors.required">Debe ingresar un apellido</div>
+                    </div>
+                </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Correo</mat-label>
                     <input formControlName="correo" matInput [ngClass]="{ 'is-invalid': submitted && f.correo.errors }">
@@ -23,6 +38,17 @@
                         <div *ngIf="f.clave.errors.required">Debe ingresar una clave</div>
                         <div *ngIf="f.clave.errors.minlength">La clave debe tener al menos 6 caracteres</div>
                     </div>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Avatar</mat-label>
+                    <mat-select formControlName="imagen" panelClass="panel">
+                        <mat-select-trigger>
+                            <img [src]="form.value.imagen">
+                        </mat-select-trigger>
+                      <mat-option *ngFor="let avatar of avatars" [value]="avatar">
+                          <img [src]="avatar">
+                      </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </mat-card-content>
             <mat-card-actions>

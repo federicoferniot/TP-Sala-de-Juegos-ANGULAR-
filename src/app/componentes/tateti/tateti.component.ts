@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Tateti } from 'app/clases/tateti';
+import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
   selector: 'app-tateti',
@@ -10,7 +11,7 @@ import { Tateti } from 'app/clases/tateti';
 export class TatetiComponent implements OnInit {
   public juego;
 
-  constructor(private snackBar: MatSnackBar) { 
+  constructor(private snackBar: MatSnackBar, private jugadorService: JugadorService) { 
     this.juego = new Tateti();
   }
 
@@ -24,10 +25,12 @@ export class TatetiComponent implements OnInit {
       this.juego.avanzar(fila, col);
     }
     if(this.juego.ganador == this.juego.humano){
-      this.snackBar.open("Ganaste!", "X", {
+      let puntosAOtorgar = 50;
+      this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
         duration: 2000,
         panelClass: 'notif-success'
       });
+      this.jugadorService.otorgarPuntosJugadorActual('tateti', puntosAOtorgar);
     }
     if(this.juego.ganador == this.juego.ia){
       this.snackBar.open("Perdiste! :(", "X", {

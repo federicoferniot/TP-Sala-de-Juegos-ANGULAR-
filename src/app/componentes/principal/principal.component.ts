@@ -16,7 +16,7 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
   }
 
-  LoggedIn(): boolean{
+  loggedIn(): boolean{
     return this.authService.isLoggedIn;
   }
 

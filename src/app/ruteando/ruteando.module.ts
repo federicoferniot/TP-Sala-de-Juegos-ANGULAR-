@@ -24,23 +24,26 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { PptComponent } from 'app/componentes/ppt/ppt.component';
 import { TatetiComponent } from 'app/componentes/tateti/tateti.component';
 import { MemoriaComponent } from 'app/componentes/memoria/memoria.component';
+import { AnagramaComponent } from 'app/componentes/anagrama/anagrama.component';
+import { AuthGuardService } from 'app/servicios/auth-guard.service';
+import { MisDatosComponent } from 'app/componentes/mis-datos/mis-datos.component';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-  { path: 'Jugadores', component: JugadoresListadoComponent },
+  { path: 'Jugadores', canActivate: [AuthGuardService], component: JugadoresListadoComponent },
   { path: '', component: PrincipalComponent },
   { path: 'Login', component: LoginComponent },
-  { path: 'Mapa', component: MapaDeGoogleComponent },
   { path: 'QuienSoy', component: QuienSoyComponent },
   { path: 'Registro', component: RegistroComponent },
   { path: 'Principal', component: PrincipalComponent },
-  { path: 'Listado', component: ListadoComponent },
-  { path: 'Paises', component: ListadoDePaisesComponent },
+  { path: 'Listado', canActivate: [AuthGuardService], component: ListadoComponent },
+  { path: 'MisDatos', canActivate: [AuthGuardService], component: MisDatosComponent},
 
   {
     path: 'Juegos',
     component: JuegosComponent,
+    canActivate: [AuthGuardService],
     children:
       [{ path: '', component: MenuCardComponent },
       { path: 'Adivina', component: AdivinaElNumeroComponent },
@@ -48,15 +51,18 @@ const MiRuteo = [
       { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent },
       { path: 'Agilidad', component: AgilidadAritmeticaComponent },
       { path: 'Ppt', component: PptComponent },
-      { path: 'Tateti', component: TatetiComponent},
-      { path: 'Memoria', component: MemoriaComponent}]
+      { path: 'Tateti', component: TatetiComponent },
+      { path: 'Memoria', component: MemoriaComponent },
+      { path: 'Anagrama', component: AnagramaComponent }]
   },
   { path: '**', component: ErrorComponent },
   { path: 'error', component: ErrorComponent }];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(MiRuteo)
+    RouterModule.forRoot(MiRuteo, {
+      onSameUrlNavigation: 'reload'
+    })
   ],
   exports: [
     RouterModule

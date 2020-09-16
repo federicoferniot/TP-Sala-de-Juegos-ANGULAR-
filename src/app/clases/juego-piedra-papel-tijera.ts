@@ -10,6 +10,10 @@ export class JuegoPiedraPapelTijera extends Juego{
     private opcionMaquina;
     private opciones = ['piedra', 'papel', 'tijera']
 
+    constructor(){
+        super("Piedra Papel o Tijera");
+    }
+
     public nuevoJuego(): void{
         this.elementoSeleccionado = null;
         this.elementoMaquina = null;
@@ -46,5 +50,9 @@ export class JuegoPiedraPapelTijera extends Juego{
                 break;
         }
         return retorno;
+    }
+
+    public retornarInformacion(): string {
+        return "Juega contra la máquina. Papel gana a Piedra, Piedra gana a Tijera y Tijera gana a Papel";
     }
 }

@@ -1,6 +1,7 @@
 import { Juego } from './juego';
 
 export class JuegoAgilidad extends Juego{
+
     public numeroIngresado: number;
     public numeroUno: number;
     public numeroDos: number;
@@ -10,6 +11,10 @@ export class JuegoAgilidad extends Juego{
     private operadores = [ '+' , '-', 'x']
     private min = 0;
     private max = 100;
+
+    constructor(){
+        super("Velocidad y Agilidad Aritmética")
+    }
 
     nuevoJuego(){
         this.numeroUno = this.numeroRandom(this.min, this.max);
@@ -47,5 +52,9 @@ export class JuegoAgilidad extends Juego{
 
     private operadorRandom(): string {
         return this.operadores[this.numeroRandom(0, this.operadores.length)];
+    }
+
+    public retornarInformacion(): string {
+        return "Ingresa el resultado de la operación\nSi aciertas suma puntos!";
     }
 }

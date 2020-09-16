@@ -1,10 +1,11 @@
 mat-card {
     border-radius: 10px; /* 5px rounded corners */
+    background-color: cadetblue;
 }
 
 mat-card:hover{
   background-color: lightcyan;
-  box-shadow: 10px 10px 10px rgba(145, 92, 182, .4);
+  box-shadow: 5px 5px rebeccapurple;
   cursor: pointer;
 }
 
@@ -17,36 +18,44 @@ p {
 }
 
 .img-agilidad {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/cerebro.png');
   background-size: cover;
 }
 
 .img-ppt {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/ppt.png');
   background-size: cover;
 }
 
 .img-adivina {
+  background-color: whitesmoke;
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/adivina.png');
   background-size: cover;
 }
 
 .img-tateti {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/tateti.png');
   background-size: cover;
 }
 
 .img-anagrama {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/anagrama.png');
   background-size: cover;
 }
 
 .img-memo {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/memo.png');
   background-size: cover;
 }
 
 .img-naval {
+  background-color: whitesmoke;
   background-image: url('/assets/imagenes/naval.png');
   background-size: cover;
 }

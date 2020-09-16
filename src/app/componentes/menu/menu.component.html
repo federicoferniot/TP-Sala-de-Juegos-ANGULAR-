@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="toggleSideBar() "><mat-icon>menu</mat-icon></button>
+  <button *ngIf="isLoggedIn()" mat-icon-button (click)="toggleSideBar() "><mat-icon>menu</mat-icon></button>
   <button mat-icon-button routerLink="/Principal"><mat-icon>home</mat-icon></button>
-  <button mat-icon-button routerLink="/Juegos"><mat-icon>videogame_asset</mat-icon></button>
+  <button *ngIf="juego" mat-icon-button routerLink="/Juegos"><mat-icon>videogame_asset</mat-icon></button>
+  <h4 *ngIf="juego">{{juego?.nombre}}</h4>
+  <span class="spacer"></span>
+  <button *ngIf="juego" mat-icon-button [matTooltip]="obtenerInfo()"><mat-icon>info</mat-icon></button>
 </mat-toolbar>
 <mat-drawer-container>
   <mat-sidenav #sidenav class="side-nav-left" position="start" role="directory" [opened]="opened">
@@ -19,22 +22,31 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-action-list>
-                <button mat-list-item>
+                <button mat-list-item (click)="irAJuego('agilidad')">
                   <span>Velocidad y agilidad aritmética</span>
                 </button>
-                <button mat-list-item>
+                <button mat-list-item (click)="irAJuego('ppt')">
                   <span>Piedra, Papel o Tijera</span>
                 </button>
-                <button mat-list-item>
+                <button mat-list-item (click)="irAJuego('adivina')">
                   <span>Adivina el número secreto</span>
+                </button>
+                <button mat-list-item (click)="irAJuego('memoria')">
+                  <span>Memo Test</span>
+                </button>
+                <button mat-list-item (click)="irAJuego('tateti')">
+                  <span>Ta Te Ti</span>
+                </button>
+                <button mat-list-item (click)="irAJuego('anagrama')">
+                  <span>Anagrama</span>
                 </button>
               </mat-action-list>
             </mat-expansion-panel>
           </mat-accordion>
-          <button mat-list-item>
+          <button mat-list-item routerLink="/MisDatos">
             <span>Mis datos</span>
           </button>
-          <button mat-list-item>
+          <button mat-list-item (click)="salir()">
             <span>Salir</span>
           </button>
         </mat-action-list>

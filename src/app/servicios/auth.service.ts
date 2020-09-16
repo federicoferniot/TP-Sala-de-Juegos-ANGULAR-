@@ -31,7 +31,7 @@ export class AuthService {
     localStorage.removeItem('user');
   }
   async register(email: string, password: string) {
-    var result = await this.afAuth.createUserWithEmailAndPassword(email, password)
+    return await this.afAuth.createUserWithEmailAndPassword(email, password)
   }
 
   async sendPasswordResetEmail(passwordResetEmail: string) {
@@ -41,5 +41,9 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
+  }
+
+  get userLoggedIn() {
+    return JSON.parse(localStorage.getItem('user'));
   }
 }

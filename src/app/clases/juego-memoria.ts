@@ -8,9 +8,10 @@ export class JuegoMemoria extends Juego {
     public enJuego;
     public gano;
     public pensando;
+    public movimientos;
 
     constructor() {
-        super()
+        super("Memo Test");
         this.nuevoJuego();
     }
 
@@ -30,6 +31,7 @@ export class JuegoMemoria extends Juego {
         this.enJuego = true;
         this.gano = false;
         this.pensando = false;
+        this.movimientos = 0;
     }
 
     seSelecciona(indice) {
@@ -40,6 +42,7 @@ export class JuegoMemoria extends Juego {
                 this.primerOpcion = indice;
             }
             else {
+                this.movimientos += 1;
                 this.segundaOpcion = indice;
                 if (this.sonIgualesSeleccionadas()) {
                     this.cartas[this.primerOpcion].encontrada = true;
@@ -83,6 +86,10 @@ export class JuegoMemoria extends Juego {
 
     public verificar(): boolean {
         return this.cartas[this.primerOpcion].contenido == this.cartas[this.segundaOpcion].contenido;
+    }
+
+    public retornarInformacion(): string {
+        return "Encuentra los pares de cartas y suma puntos al encontrar todas!";
     }
 }
 

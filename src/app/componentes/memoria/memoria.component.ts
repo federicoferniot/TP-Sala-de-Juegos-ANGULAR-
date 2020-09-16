@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JuegoMemoria } from 'app/clases/juego-memoria';
+import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
   selector: 'app-memoria',
@@ -13,7 +14,7 @@ export class MemoriaComponent implements OnInit {
   public contador;
   public tiempoRestante;
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(private snackBar: MatSnackBar, private jugadorService: JugadorService) {
     this.juego = new JuegoMemoria();
     this.juego.enJuego = false;
   }
@@ -30,10 +31,11 @@ export class MemoriaComponent implements OnInit {
     this.tiempoRestante = 60;
     this.contador = setInterval(() => {
       this.tiempoRestante -= 1;
-      console.log(this.tiempoRestante);
       if (this.juego.gano) {
+        let puntosAOtorgar = Math.floor(1000/this.juego.movimientos);
         clearInterval(this.contador);
-        this.snackBar.open("Ganaste!", "X", {
+        this.jugadorService.otorgarPuntosJugadorActual('memoria', puntosAOtorgar);
+        this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
           duration: 2000,
           panelClass: 'notif-success'
         });

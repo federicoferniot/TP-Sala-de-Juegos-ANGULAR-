@@ -16,7 +16,7 @@ export abstract class Juego {
   }
 
 
-  
+  public abstract retornarInformacion(): string;
 
   public abstract verificar():boolean; 
   

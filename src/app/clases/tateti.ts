@@ -12,9 +12,20 @@ export class Tateti extends Juego {
     public humano = 'X';
     public enJuego;
 
+    constructor(){
+        super("Ta Te Ti");
+    }
+
     public nuevoJuego(){
         this.tablero = [['', '', ''], ['', '', ''], ['', '', '']];
         this.enJuego = true;
+        let random = Math.floor(Math.random()*2);
+        if(random ==0){
+            this.jugadorActual = this.humano;
+        }
+        else{
+            this.avanzar();
+        }
     }
 
     get ganador(){
@@ -169,5 +180,9 @@ export class Tateti extends Juego {
             }
             return mejorPuntaje;
         }
+    }
+
+    public retornarInformacion(): string {
+        return "Eres las X, haz una linea de 3 y gana!";
     }
 }

@@ -10,6 +10,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +24,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule} from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import {MatSortModule} from '@angular/material/sort';
 import {InputTextModule} from 'primeng/inputtext';
 
 // import { AccordionModule } from 'ngx-bootstrap';
@@ -76,6 +83,7 @@ import { RecuperarComponent } from './componentes/recuperar/recuperar.component'
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemoriaComponent } from './componentes/memoria/memoria.component';
+import { MisDatosComponent } from './componentes/mis-datos/mis-datos.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -116,7 +124,8 @@ var config = {
     RecuperarComponent,
     PptComponent,
     TatetiComponent,
-    MemoriaComponent
+    MemoriaComponent,
+    MisDatosComponent
   ],
   imports: [
     BrowserModule,
@@ -137,11 +146,18 @@ var config = {
     MatProgressBarModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatSortModule,
     InputTextModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
