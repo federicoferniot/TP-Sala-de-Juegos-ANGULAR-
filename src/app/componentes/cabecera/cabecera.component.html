@@ -1,6 +1,15 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
+  <button *ngIf="!LoggedIn()" mat-button routerLink="/Login">
+    <mat-icon>account_circle</mat-icon>
+    <span>Ingresar</span>
+  </button>
+  <button *ngIf="!LoggedIn()" mat-button routerLink="/Registro">
+    <mat-icon>ballot</mat-icon>
+    <span>Registrarse</span>
+  </button>
+  <button *ngIf="LoggedIn()" mat-button (click)="Logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Salir</span>
   </button>
 </mat-toolbar>
 <div class="panel panel-default">
@@ -11,18 +20,5 @@
       <a  routerLink="/QuienSoy" >¿Quién Soy? <i class="fa fa-user"></i></a>
   </div>
 
-  <mat-menu #menu="matMenu">
-    <button *ngIf="!LoggedIn()" mat-menu-item routerLink="/Login">
-      <mat-icon>account_circle</mat-icon>
-      <span>Ingresar</span>
-    </button>
-    <button *ngIf="!LoggedIn()" mat-menu-item routerLink="/Registro">
-      <mat-icon>ballot</mat-icon>
-      <span>Registrarse</span>
-    </button>
-    <button *ngIf="LoggedIn()" mat-menu-item (click)="Logout()">
-      <mat-icon>exit_to_app</mat-icon>
-      <span>Salir</span>
-    </button>
-  </mat-menu>
+
 </div>
