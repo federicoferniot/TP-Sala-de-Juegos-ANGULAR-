@@ -26,8 +26,6 @@ export class ListadoDeResultadosComponent implements OnInit {
   public cargandoAnagrama;
   public displayedColumns: string[] = ['jugador', 'puntos'];
 
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor(private jugadorService: JugadorService) {
   }
 
@@ -111,13 +109,4 @@ export class ListadoDeResultadosComponent implements OnInit {
       this.cargandoAnagrama = false;
     });
   }
-
-  ver() {
-  }
-
-}
-
-export interface Puntaje{
-  uid: string,
-  puntos: number
 }

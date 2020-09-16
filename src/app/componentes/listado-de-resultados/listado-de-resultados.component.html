@@ -3,14 +3,14 @@
     <mat-tab label="Agilidad">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoAgilidad"></mat-spinner>
-        <div *ngIf="puntajesAgilidad.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoAgilidad && puntajesAgilidad <= 0" mat-table [dataSource]="puntajesAgilidad" matSort class="mat-elevation-z8">
+        <div *ngIf="!cargandoAgilidad && puntajesAgilidad.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoAgilidad && puntajesAgilidad.length > 0" mat-table [dataSource]="puntajesAgilidad" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -21,14 +21,14 @@
     <mat-tab label="PPT">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoPpt"></mat-spinner>
-        <div *ngIf="puntajesPpt.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoPpt && puntajesPpt.length <= 0" mat-table matSort [dataSource]="puntajesPpt" class="mat-elevation-z8">
+        <div *ngIf="!cargandoPpt && puntajesPpt.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoPpt && puntajesPpt.length > 0" mat-table [dataSource]="puntajesPpt" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -39,14 +39,14 @@
     <mat-tab label="Adivina">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoAdivina"></mat-spinner>
-        <div *ngIf="puntajesAdivina.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoAdivina && puntajesAdivina <= 0" mat-table matSort [dataSource]="puntajesAdivina" class="mat-elevation-z8">
+        <div *ngIf="!cargandoAdivina && puntajesAdivina.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoAdivina && puntajesAdivina.length > 0" mat-table [dataSource]="puntajesAdivina" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -57,14 +57,14 @@
     <mat-tab label="Memo Test">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoMemoria"></mat-spinner>
-        <div *ngIf="puntajesMemoria.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoMemoria && puntajesMemoria <= 0" mat-table matSort [dataSource]="puntajesMemoria" class="mat-elevation-z8">
+        <div *ngIf="!cargandoMemoria && puntajesMemoria.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoMemoria && puntajesMemoria.length > 0" mat-table [dataSource]="puntajesMemoria" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -75,14 +75,14 @@
     <mat-tab label="Ta Te Ti">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoTateti"></mat-spinner>
-        <div *ngIf="puntajesTateti.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoTateti && puntajesTateti <= 0" mat-table matSort [dataSource]="puntajesTateti" class="mat-elevation-z8">
+        <div *ngIf="!cargandoTateti && puntajesTateti.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoTateti && puntajesTateti.length > 0" mat-table [dataSource]="puntajesTateti" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -93,14 +93,14 @@
     <mat-tab label="Anagrama">
       <div class="example-large-box" fxLayoutAlign="center center">
         <mat-spinner *ngIf="cargandoJugadores && cargandoAnagrama"></mat-spinner>
-        <div *ngIf="puntajesAnagrama.length <= 0"><p>No se encontraron resultados</p></div>
-        <table [hidden]="cargandoJugadores && cargandoAnagrama && puntajesAnagrama <= 0" mat-table matSort [dataSource]="puntajesAnagrama" class="mat-elevation-z8">
+        <div *ngIf="!cargandoAnagrama && puntajesAnagrama.length <= 0"><p>No se encontraron resultados</p></div>
+        <table *ngIf="!cargandoJugadores && !cargandoAnagrama && puntajesAnagrama.length > 0" mat-table [dataSource]="puntajesAnagrama" class="mat-elevation-z8">
           <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{jugadores[element.uid].jugador}}</td>
           </ng-container>
           <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
