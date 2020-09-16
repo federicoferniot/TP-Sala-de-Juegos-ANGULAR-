@@ -1,9 +1,9 @@
 <div class="example-large-box" fxLayoutAlign="center center">
     <mat-spinner *ngIf="cargandoAgilidad"></mat-spinner>
-    <div *ngIf="!cargandoAgilidad && puntajesAgilidad.length <= 0">
+    <div *ngIf="!cargandoAgilidad && cantidad == 0">
         <p>No se encontraron resultados</p>
     </div>
-    <table [hidden]="cargandoAgilidad || puntajesAgilidad.length == 0" mat-table
+    <table [hidden]="cargandoAgilidad || cantidad == 0" mat-table
         [dataSource]="puntajesAgilidad" matSort class="mat-elevation-z2">
         <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Jugador</th>

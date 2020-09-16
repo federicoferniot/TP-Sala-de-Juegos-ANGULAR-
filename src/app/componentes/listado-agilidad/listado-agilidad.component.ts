@@ -13,6 +13,10 @@ export class ListadoAgilidadComponent implements OnInit {
 
   private _jugadores;
   private _agilidad: Puntaje[];
+  public cantidad = 0;
+  public cargandoAgilidad = true;
+  public puntajesAgilidad;
+  public displayedColumns: string[] = ['jugador', 'puntos'];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -28,17 +32,14 @@ export class ListadoAgilidadComponent implements OnInit {
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
           });
+          this.cantidad++;
         });
         this.puntajesAgilidad = new MatTableDataSource(this._agilidad);
         this.cargandoAgilidad = false;
         this.puntajesAgilidad.sort = this.sort;
       });
     }
-  }
-  ;
-  public cargandoAgilidad = true;
-  public puntajesAgilidad;
-  public displayedColumns: string[] = ['jugador', 'puntos'];
+  };
 
   constructor(private jugadorService: JugadorService) { }
 

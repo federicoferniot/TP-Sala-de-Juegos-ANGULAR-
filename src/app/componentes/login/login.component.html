@@ -11,7 +11,6 @@
           <mat-form-field appearance="outline">
               <mat-label>Correo</mat-label>
               <input formControlName="correo" matInput [ngClass]="{ 'is-invalid': submitted && f.correo.errors }">
-              <mat-hint>feder.fer.93@gmail.com</mat-hint>
               <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
                 <div *ngIf="f.correo.errors.required">Ingrese un correo</div>
                 <div *ngIf="f.correo.errors.email">Formato incorrecto</div>
@@ -20,7 +19,6 @@
           <mat-form-field appearance="outline">
               <mat-label>Clave</mat-label>
               <input formControlName="clave" matInput type="password" [ngClass]="{ 'is-invalid': submitted && f.clave.errors }">
-              <mat-hint>fedezxr37</mat-hint>
               <div *ngIf="submitted && f.clave.errors" class="invalid-feedback">
                 <div *ngIf="f.clave.errors.required">Ingrese una clave</div>
               </div>

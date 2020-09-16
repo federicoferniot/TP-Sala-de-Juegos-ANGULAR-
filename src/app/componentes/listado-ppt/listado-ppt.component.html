@@ -1,15 +1,15 @@
 <div class="example-large-box" fxLayoutAlign="center center">
     <mat-spinner *ngIf="cargandoPpt"></mat-spinner>
-    <div *ngIf="!cargandoPpt && puntajesPpt.length <= 0">
+    <div *ngIf="!cargandoPpt && cantidad == 0">
         <p>No se encontraron resultados</p>
     </div>
-    <table *ngIf="!cargandoPpt && puntajesPpt.length > 0" mat-table [dataSource]="puntajesPpt" class="mat-elevation-z2">
+    <table [hidden]="cargandoPpt || cantidad == 0" matSort mat-table [dataSource]="puntajesPpt" class="mat-elevation-z2">
         <ng-container matColumnDef="jugador">
-            <th mat-header-cell *matHeaderCellDef>Jugador</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Jugador</th>
             <td mat-cell *matCellDef="let element">{{element.jugador}}</td>
         </ng-container>
         <ng-container matColumnDef="puntos">
-            <th mat-header-cell *matHeaderCellDef>Puntos</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntos</th>
             <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

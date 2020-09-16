@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Puntaje } from 'app/clases/puntaje';
 import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
@@ -9,21 +12,30 @@ import { JugadorService } from 'app/servicios/jugador.service';
 export class ListadoAdivinaComponent implements OnInit {
 
   private _jugadores;
+  private _adivina: Puntaje[];
+  public cantidad = 0;
   public cargandoAdivina = true;
-  public puntajesAdivina = [];
+  public puntajesAdivina;
   public displayedColumns: string[] = ['jugador', 'puntos'];
+
+  @ViewChild(MatSort) sort: MatSort;
 
   @Input() public set value(v) {
     if(v){
       this._jugadores = v;
+      this.cargandoAdivina = true;
       let puntajes = this.jugadorService.obtenerResultado();
       puntajes.collection('adivina').get().subscribe( response => {
         response.forEach( element => {
-          this.puntajesAdivina.push({
+          this._adivina = [];
+          this._adivina.push({
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
           });
+          this.cantidad++;
         });
+        this.puntajesAdivina = new MatTableDataSource(this._adivina);
+        this.puntajesAdivina.sort = this.sort;
         this.cargandoAdivina = false;
       });
     }
