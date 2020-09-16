@@ -12,6 +12,9 @@ import { JugadorService } from 'app/servicios/jugador.service';
 export class JugadoresListadoComponent implements OnInit {
 
   dataSource;
+  nombre;
+  apellido;
+  correo;
   jugadores: Jugador[];
   displayedColumns: string[] = ['nombre', 'apellido', 'correo'];
   cargando;
@@ -33,6 +36,34 @@ export class JugadoresListadoComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.cargando = false;
     })
+  }
+
+  configurarFiltro(column){
+    this.dataSource.filterPredicate = (data: Jugador, filter: string) => {
+      let retorno = false;
+      switch (column) {
+        case 'nombre':
+          this.apellido = "";
+          this.correo = "";
+          retorno = data.nombre.toLowerCase().includes(filter.toLowerCase());
+          break;
+        case 'apellido':
+          this.nombre = "";
+          this.correo = "";
+          retorno = data.apellido.toLowerCase().includes(filter.toLowerCase());
+          break;
+        case 'correo':
+          this.nombre = "";
+          this.apellido = "";
+          retorno = data.correo.toLowerCase().includes(filter.toLowerCase());
+          break;
+      }
+      return retorno;
+    }
+  }
+
+  public aplicarFiltro(valor: string){
+    this.dataSource.filter = valor;
   }
 }
 

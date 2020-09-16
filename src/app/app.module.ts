@@ -51,7 +51,6 @@ import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
-import { ListadoDePaisesComponent } from './componentes/listado-de-paises/listado-de-paises.component';
 import { AgmCoreModule } from '@agm/core';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { AlertComponent } from './componentes/alert/alert.component';
@@ -66,6 +65,7 @@ import { ListadoPptComponent } from './componentes/listado-ppt/listado-ppt.compo
 import { ListadoMemoriaComponent } from './componentes/listado-memoria/listado-memoria.component';
 import { ListadoTatetiComponent } from './componentes/listado-tateti/listado-tateti.component';
 import { ListadoAnagramaComponent } from './componentes/listado-anagrama/listado-anagrama.component';
+import { ManejarUsuarioComponent } from './componentes/manejar-usuario/manejar-usuario.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -93,7 +93,6 @@ var config = {
     CabeceraComponent,
     QuienSoyComponent,
     AnagramaComponent,
-    ListadoDePaisesComponent,
     JugadoresListadoComponent,
     SexoPipe,
     AlertComponent,
@@ -107,7 +106,8 @@ var config = {
     ListadoPptComponent,
     ListadoMemoriaComponent,
     ListadoTatetiComponent,
-    ListadoAnagramaComponent
+    ListadoAnagramaComponent,
+    ManejarUsuarioComponent
   ],
   imports: [
     BrowserModule,

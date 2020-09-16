@@ -5,6 +5,13 @@ table {
   box-shadow: 5px 5px rebeccapurple;
 }
 
+.busqueda{
+  display: flex;
+  margin-top: 1%;
+  background-color: white;
+  box-shadow: 5px 5px rebeccapurple;
+}
+
 table tr:nth-child(odd) {
   background-color: whitesmoke;
 }

@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Puntaje } from 'app/clases/puntaje';
 import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
@@ -9,6 +12,9 @@ import { JugadorService } from 'app/servicios/jugador.service';
 export class ListadoAgilidadComponent implements OnInit {
 
   private _jugadores;
+  private _agilidad: Puntaje[];
+
+  @ViewChild(MatSort) sort: MatSort;
 
   @Input() public set value(v) {
     if(v){
@@ -16,19 +22,22 @@ export class ListadoAgilidadComponent implements OnInit {
       this.cargandoAgilidad = true;
       let puntajes = this.jugadorService.obtenerResultado();
       puntajes.collection('agilidad').get().subscribe( response => {
+        this._agilidad = [];
         response.forEach( element => {
-          this.puntajesAgilidad.push({
+          this._agilidad.push(<Puntaje>{
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
           });
         });
+        this.puntajesAgilidad = new MatTableDataSource(this._agilidad);
         this.cargandoAgilidad = false;
+        this.puntajesAgilidad.sort = this.sort;
       });
     }
   }
   ;
   public cargandoAgilidad = true;
-  public puntajesAgilidad = [];
+  public puntajesAgilidad;
   public displayedColumns: string[] = ['jugador', 'puntos'];
 
   constructor(private jugadorService: JugadorService) { }

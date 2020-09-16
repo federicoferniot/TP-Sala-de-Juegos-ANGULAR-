@@ -1,6 +1,20 @@
 <app-menu></app-menu>
-<div class="container" fxLayoutAlign="center center">
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
   <mat-spinner *ngIf="cargando"></mat-spinner>
+  <div [hidden]="cargando" class="container busqueda" fxLayout="row wrap" fxLayoutAlign="space-around center">
+    <mat-form-field class="filter" floatLabel="never">
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="nombre" (keyup)="aplicarFiltro($event.target.value)" (focus)="configurarFiltro('nombre')">
+    </mat-form-field>
+    <mat-form-field class="filter" floatLabel="never">
+      <mat-label>Apellido</mat-label>
+      <input matInput [(ngModel)]="apellido" (keyup)="aplicarFiltro($event.target.value)" (focus)="configurarFiltro('apellido')">
+    </mat-form-field>
+    <mat-form-field class="filter" floatLabel="never">
+      <mat-label>Correo</mat-label>
+      <input matInput [(ngModel)]="correo" (keyup)="aplicarFiltro($event.target.value)" (focus)="configurarFiltro('correo')">
+    </mat-form-field>
+  </div>
   <table [hidden]="cargando" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
@@ -16,5 +30,6 @@
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
   </table>
 </div>
