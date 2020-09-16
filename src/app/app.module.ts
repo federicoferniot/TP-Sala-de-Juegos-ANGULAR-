@@ -61,6 +61,11 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemoriaComponent } from './componentes/memoria/memoria.component';
 import { MisDatosComponent } from './componentes/mis-datos/mis-datos.component';
 import { ListadoAdivinaComponent } from './componentes/listado-adivina/listado-adivina.component';
+import { ListadoAgilidadComponent } from './componentes/listado-agilidad/listado-agilidad.component';
+import { ListadoPptComponent } from './componentes/listado-ppt/listado-ppt.component';
+import { ListadoMemoriaComponent } from './componentes/listado-memoria/listado-memoria.component';
+import { ListadoTatetiComponent } from './componentes/listado-tateti/listado-tateti.component';
+import { ListadoAnagramaComponent } from './componentes/listado-anagrama/listado-anagrama.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -97,7 +102,12 @@ var config = {
     TatetiComponent,
     MemoriaComponent,
     MisDatosComponent,
-    ListadoAdivinaComponent
+    ListadoAdivinaComponent,
+    ListadoAgilidadComponent,
+    ListadoPptComponent,
+    ListadoMemoriaComponent,
+    ListadoTatetiComponent,
+    ListadoAnagramaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,9 @@
 <div class="example-large-box" fxLayoutAlign="center center">
-    <mat-spinner *ngIf="cargandoAdivina"></mat-spinner>
-    <div *ngIf="!cargandoAdivina && puntajesAdivina.length <= 0">
+    <mat-spinner *ngIf="cargandoPpt"></mat-spinner>
+    <div *ngIf="!cargandoPpt && puntajesPpt.length <= 0">
         <p>No se encontraron resultados</p>
     </div>
-    <table *ngIf="!cargandoAdivina && puntajesAdivina.length > 0" mat-table [dataSource]="puntajesAdivina"
-        class="mat-elevation-z2">
+    <table *ngIf="!cargandoPpt && puntajesPpt.length > 0" mat-table [dataSource]="puntajesPpt" class="mat-elevation-z2">
         <ng-container matColumnDef="jugador">
             <th mat-header-cell *matHeaderCellDef>Jugador</th>
             <td mat-cell *matCellDef="let element">{{element.jugador}}</td>

@@ -1,0 +1,16 @@
+<div class="example-large-box" fxLayoutAlign="center center">
+    <mat-spinner *ngIf="cargandoAnagrama"></mat-spinner>
+    <div *ngIf="!cargandoAnagrama && puntajesAnagrama.length <= 0"><p>No se encontraron resultados</p></div>
+    <table *ngIf="!cargandoAnagrama && puntajesAnagrama.length > 0" mat-table [dataSource]="puntajesAnagrama" class="mat-elevation-z2">
+      <ng-container matColumnDef="jugador">
+        <th mat-header-cell *matHeaderCellDef>Jugador</th>
+        <td mat-cell *matCellDef="let element">{{element.jugador}}</td>
+      </ng-container>
+      <ng-container matColumnDef="puntos">
+        <th mat-header-cell *matHeaderCellDef>Puntos</th>
+        <td mat-cell *matCellDef="let element">{{element.puntos}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

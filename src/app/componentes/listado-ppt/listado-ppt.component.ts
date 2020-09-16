@@ -2,32 +2,33 @@ import { Component, Input, OnInit } from '@angular/core';
 import { JugadorService } from 'app/servicios/jugador.service';
 
 @Component({
-  selector: 'app-listado-adivina',
-  templateUrl: './listado-adivina.component.html',
-  styleUrls: ['./listado-adivina.component.css']
+  selector: 'app-listado-ppt',
+  templateUrl: './listado-ppt.component.html',
+  styleUrls: ['./listado-ppt.component.css']
 })
-export class ListadoAdivinaComponent implements OnInit {
+export class ListadoPptComponent implements OnInit {
 
   private _jugadores;
-  public cargandoAdivina = true;
-  public puntajesAdivina = [];
+  public cargandoPpt = true;
+  public puntajesPpt = [];
   public displayedColumns: string[] = ['jugador', 'puntos'];
 
   @Input() public set value(v) {
     if(v){
       this._jugadores = v;
       let puntajes = this.jugadorService.obtenerResultado();
-      puntajes.collection('adivina').get().subscribe( response => {
+      puntajes.collection('ppt').get().subscribe( response => {
         response.forEach( element => {
-          this.puntajesAdivina.push({
+          this.puntajesPpt.push({
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
           });
         });
-        this.cargandoAdivina = false;
+        this.cargandoPpt = false;
       });
     }
   }
+  
 
   constructor(private jugadorService: JugadorService) { }
 
