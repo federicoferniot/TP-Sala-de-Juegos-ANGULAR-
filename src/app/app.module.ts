@@ -32,11 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
 import {InputTextModule} from 'primeng/inputtext';
 
-import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
 
-import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -44,7 +40,6 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
 
-import { JuegoServiceService } from './servicios/juego-service.service';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { MenuCardComponent } from './componentes/menu-card/menu-card.component';
@@ -52,7 +47,6 @@ import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { AgmCoreModule } from '@agm/core';
-import { SexoPipe } from './pipes/sexo.pipe';
 import { AlertComponent } from './componentes/alert/alert.component';
 import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
 import { PptComponent } from './componentes/ppt/ppt.component';
@@ -94,7 +88,6 @@ var config = {
     QuienSoyComponent,
     AnagramaComponent,
     JugadoresListadoComponent,
-    SexoPipe,
     AlertComponent,
     RecuperarComponent,
     PptComponent,
@@ -144,7 +137,7 @@ var config = {
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
