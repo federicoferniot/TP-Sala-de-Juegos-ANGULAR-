@@ -47,14 +47,14 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.juego.terminarJuego();
     let puntosAOtorgar = Math.floor(this.tiempo*10);
     if(this.juego.gano){
-      this.snackBar.open("Ganaste!", "X", {
+      this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
         duration: 2000,
         panelClass: 'notif-success'
       });
       this.jugadorService.otorgarPuntosJugadorActual('agilidad', puntosAOtorgar);
     }
     else{
-      this.snackBar.open("Perdiste!", "X", {
+      this.snackBar.open(`Perdiste! El resultado era ${this.juego.resultado}`, "X", {
         duration: 2000,
         panelClass: 'notif-warn'
       });

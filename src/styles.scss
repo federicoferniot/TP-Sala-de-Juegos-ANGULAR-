@@ -31,12 +31,12 @@ body {
 }
 
 .panel.mat-select-panel {
-    width: 400px;
-    max-width: 400px;
+    width: 200px;
+    max-width: 200px;
     display: flex;
     flex-wrap: wrap;
 
-    max-height: 240px; /* 240px - for 5 items / column */
+    max-height: 240px;
 }
 
 .panel.mat-select-panel .mat-option {

@@ -17,6 +17,7 @@ export class JuegoAgilidad extends Juego{
     }
 
     nuevoJuego(){
+        this.numeroIngresado = null;
         this.numeroUno = this.numeroRandom(this.min, this.max);
         this.numeroDos = this.numeroRandom(this.min, this.max);
         this.operador = this.operadorRandom();
