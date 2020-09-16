@@ -11,6 +11,10 @@
     <mat-icon>exit_to_app</mat-icon>
     <span>Salir</span>
   </button>
+  <button *ngIf="LoggedIn()" mat-button  routerLink="/MisDatos">
+    <mat-icon>assignment_ind</mat-icon>
+    <span>Mis Datos</span>
+  </button>
 </mat-toolbar>
 <div class="panel panel-default">
   <div class="hero-text">
