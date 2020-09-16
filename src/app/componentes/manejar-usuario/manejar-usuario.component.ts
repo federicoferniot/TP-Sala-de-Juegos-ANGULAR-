@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from 'app/servicios/alert.service';
+import { AuthService } from 'app/servicios/auth.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manejar-usuario',
@@ -7,9 +14,87 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManejarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  ngUnsubscribe: Subject<any> = new Subject<any>();
+  actions;
 
-  ngOnInit(): void {
+  // The user management actoin to be completed
+  mode: string;
+  // Just a code Firebase uses to prove that
+  // this is a real password reset.
+  actionCode: string;
+
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+  actionCodeChecked;
+  form: FormGroup;
+  submitted = false;
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private alertService: AlertService) { }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      clave: ['', [Validators.required, Validators.minLength(6)]],
+      claveRepetida: ['', [Validators.required, Validators.minLength(6)]]
+    })
+    this.activatedRoute.queryParams
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(params => {
+        if (!params) this.router.navigate(['/home']);
+
+        this.mode = params['mode'];
+        this.actionCode = params['oobCode'];
+
+        switch (params['mode']) {
+          case 'resetPassword': {
+            // Verify the password reset code is valid.
+            this.authService.getAuth().verifyPasswordResetCode(this.actionCode).then( response =>{
+              this.actionCodeChecked = true;
+            }).catch( error => {
+              this.router.navigate(['/Error']);
+            });
+          } break
+          default: {
+            console.log('query parameters are missing');
+            this.router.navigate(['/Login']);
+          }
+        }
+      })
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
+  get f() { return this.form.controls; }
+
+  handleResetPassword() {
+    this.submitted = true;
+
+    this.alertService.clear();
+
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.form.value.clave != this.form.value.claveRepetida) {
+      this.alertService.error('Las claves no coinciden');;
+      return;
+    }
+    this.authService.getAuth().confirmPasswordReset(
+        this.actionCode,   
+        this.form.value.clave
+    )
+    .then(resp => {
+      this.alertService.success('Se ha cambiado la clave correctamente', { keepAfterRouteChange: true });
+      this.router.navigate(['/Login']);
+    }).catch(e => {
+      this.router.navigate(['/Error']);
+    });
+  }
 }

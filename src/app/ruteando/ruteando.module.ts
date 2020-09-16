@@ -18,10 +18,12 @@ import { MemoriaComponent } from 'app/componentes/memoria/memoria.component';
 import { AnagramaComponent } from 'app/componentes/anagrama/anagrama.component';
 import { AuthGuardService } from 'app/servicios/auth-guard.service';
 import { MisDatosComponent } from 'app/componentes/mis-datos/mis-datos.component';
+import { ManejarUsuarioComponent } from 'app/componentes/manejar-usuario/manejar-usuario.component';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
+  { path: 'Recuperar', component: ManejarUsuarioComponent},
   { path: 'Jugadores', canActivate: [AuthGuardService], component: JugadoresListadoComponent },
   { path: '', component: PrincipalComponent },
   { path: 'Login', component: LoginComponent },

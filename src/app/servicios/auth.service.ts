@@ -22,6 +22,10 @@ export class AuthService {
     })
    }
 
+  getAuth(){
+    return this.afAuth;
+  }
+
   async login(email: string, password: string) {
     var result = await this.afAuth.signInWithEmailAndPassword(email, password)
   }
