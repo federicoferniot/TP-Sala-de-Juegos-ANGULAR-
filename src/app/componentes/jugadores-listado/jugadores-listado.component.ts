@@ -1,7 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { PerfilJugador } from 'app/clases/perfil-jugador';
 import { JugadorService } from 'app/servicios/jugador.service';
+import { PerfilJugadorDialogComponent } from '../perfil-jugador-dialog/perfil-jugador-dialog.component';
 
 @Component({
   selector: 'app-jugadores-listado',
@@ -15,13 +18,15 @@ export class JugadoresListadoComponent implements OnInit {
   nombre;
   apellido;
   correo;
-  jugadores: Jugador[];
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo'];
+  jugadores: PerfilJugador[];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'accion'];
   cargando;
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private jugadoresService: JugadorService) {
+  constructor(
+    private jugadoresService: JugadorService,
+    public dialog: MatDialog) {
 
   }
 
@@ -30,7 +35,7 @@ export class JugadoresListadoComponent implements OnInit {
     this.jugadoresService.obtenerJugadores().subscribe(response => {
       this.jugadores = [];
       response.forEach(el => {
-        this.jugadores.push(<Jugador>el.data());
+        this.jugadores.push(<PerfilJugador>el.data());
       });
       this.dataSource = new MatTableDataSource(this.jugadores);
       this.dataSource.sort = this.sort;
@@ -39,7 +44,7 @@ export class JugadoresListadoComponent implements OnInit {
   }
 
   configurarFiltro(column){
-    this.dataSource.filterPredicate = (data: Jugador, filter: string) => {
+    this.dataSource.filterPredicate = (data: PerfilJugador, filter: string) => {
       let retorno = false;
       switch (column) {
         case 'nombre':
@@ -62,13 +67,18 @@ export class JugadoresListadoComponent implements OnInit {
     }
   }
 
+  openDialog(jugador){
+    const dialogRef = this.dialog.open(PerfilJugadorDialogComponent, {
+      panelClass: 'app-perfil',
+      data: jugador
+    })
+
+    dialogRef.afterClosed().subscribe( result => {
+      console.log(result);
+    })
+  }
+
   public aplicarFiltro(valor: string){
     this.dataSource.filter = valor;
   }
-}
-
-export interface Jugador {
-  nombre: string;
-  apellido: string;
-  correo: string;
 }

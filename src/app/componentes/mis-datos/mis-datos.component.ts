@@ -9,7 +9,6 @@ import { JugadorService } from 'app/servicios/jugador.service';
 })
 export class MisDatosComponent implements OnInit {
   public jugador;
-  public avatar = "/assets/imagenes/avatar/001-man.png";
 
   constructor(private jugadorService: JugadorService, private authService: AuthService) { }
 

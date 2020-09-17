@@ -60,6 +60,8 @@ import { ListadoMemoriaComponent } from './componentes/listado-memoria/listado-m
 import { ListadoTatetiComponent } from './componentes/listado-tateti/listado-tateti.component';
 import { ListadoAnagramaComponent } from './componentes/listado-anagrama/listado-anagrama.component';
 import { ManejarUsuarioComponent } from './componentes/manejar-usuario/manejar-usuario.component';
+import { PerfilJugadorComponent } from './componentes/perfil-jugador/perfil-jugador.component';
+import { PerfilJugadorDialogComponent } from './componentes/perfil-jugador-dialog/perfil-jugador-dialog.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -100,7 +102,9 @@ var config = {
     ListadoMemoriaComponent,
     ListadoTatetiComponent,
     ListadoAnagramaComponent,
-    ManejarUsuarioComponent
+    ManejarUsuarioComponent,
+    PerfilJugadorComponent,
+    PerfilJugadorDialogComponent
   ],
   imports: [
     BrowserModule,

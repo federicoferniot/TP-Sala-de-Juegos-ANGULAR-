@@ -1,15 +1,4 @@
 <app-menu></app-menu>
-<div fxLayoutAlign="center center" >
-    <mat-spinner *ngIf="!jugador"></mat-spinner>
-    <mat-card *ngIf="jugador" class="profile mat-elevation-z10">
-        <mat-card-content>
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <div class="img-container" fxLayoutAlign="center center">
-                    <img [src]="jugador.avatar">
-                </div>
-                <h1>{{jugador.nombre}} {{jugador.apellido}}</h1>
-                <p>{{jugador.correo}}</p>
-            </div>
-        </mat-card-content>
-    </mat-card>
+<div fxLayoutAlign="center center" class="contenedor">
+    <app-perfil-jugador [jugador]="jugador"></app-perfil-jugador>
 </div>
