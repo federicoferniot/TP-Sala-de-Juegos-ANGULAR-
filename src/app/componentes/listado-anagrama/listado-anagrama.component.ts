@@ -15,6 +15,7 @@ export class ListadoAnagramaComponent implements OnInit {
   private _anagrama: Puntaje[];
   public cantidad = 0;
   public cargandoAnagrama = true;
+  public cargandoJugadores = true;
   public puntajesAnagrama;
   public displayedColumns: string[] = ['jugador', 'puntos'];
 
@@ -24,19 +25,22 @@ export class ListadoAnagramaComponent implements OnInit {
     if(v){
       this._jugadores = v;
       this.cargandoAnagrama = true;
+      this.cargandoJugadores = true;
       let puntajes = this.jugadorService.obtenerResultado();
       puntajes.collection('anagrama').get().subscribe( response => {
+        this._anagrama = [];
         response.forEach( element => {
-          this._anagrama = [];
           this._anagrama.push({
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
           });
           this.cantidad++;
         });
+        console.log(this._anagrama);
         this.puntajesAnagrama = new MatTableDataSource(this._anagrama);
         this.puntajesAnagrama.sort = this.sort;
         this.cargandoAnagrama = false;
+        this.cargandoJugadores = false;
       });
     }
   }

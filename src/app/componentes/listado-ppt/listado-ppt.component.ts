@@ -25,8 +25,8 @@ export class ListadoPptComponent implements OnInit {
       this._jugadores = v;
       let puntajes = this.jugadorService.obtenerResultado();
       puntajes.collection('ppt').get().subscribe( response => {
+        this._ppt = [];
         response.forEach( element => {
-          this._ppt = [];
           this._ppt.push({
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos

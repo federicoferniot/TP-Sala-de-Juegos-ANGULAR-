@@ -26,8 +26,8 @@ export class ListadoAdivinaComponent implements OnInit {
       this.cargandoAdivina = true;
       let puntajes = this.jugadorService.obtenerResultado();
       puntajes.collection('adivina').get().subscribe( response => {
+        this._adivina = [];
         response.forEach( element => {
-          this._adivina = [];
           this._adivina.push({
             jugador: this._jugadores[element.id].jugador,
             puntos: element.data().puntos
