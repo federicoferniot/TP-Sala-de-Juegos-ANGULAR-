@@ -54,6 +54,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  precargarUsuario(){
+    this.form.setValue({
+      correo: "feder.fer.93@gmail.com",
+      clave: "fedezxr37"
+    });
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(RecuperarComponent);
 
