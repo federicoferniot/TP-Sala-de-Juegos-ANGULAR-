@@ -1,0 +1,60 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div class="container card" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="40%">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="img-marinero"></div>
+                <mat-card-title>Marinero</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngIf="!mensaje">
+                    <p class="typewriter">Comandante, </p>
+                    <p class="typewriter">restan dos barcos enemigos por hundir</p>
+                    <p class="typewriter">Sólo tenemos seis oportunidades,</p>
+                    <p class="typewriter"> debemos usarlas sabiamente!</p>
+                </div>
+                <div *ngIf="mensaje">
+                    <br>
+                    <br>
+                    <br>
+                    <p class="typewriter">{{mensaje}}</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="container">
+        <div class="row fila">
+            <div class="col-4 casilla" *ngFor='let indice of [0,1,2]'
+                [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
+                (click)="atacar(indice)">
+                <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
+                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                    src='/assets/imagenes/naufragio.png'>
+            </div>
+        </div>
+        <div class="row fila">
+            <div class="col-4 casilla" *ngFor='let indice of [3,4,5]'
+                [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
+                (click)="atacar(indice)">
+                <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
+                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                    src='/assets/imagenes/naufragio.png'>
+            </div>
+        </div>
+        <div class="row fila">
+            <div class="col-4 casilla" *ngFor='let indice of [6,7,8]'
+                [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
+                (click)="atacar(indice)">
+                <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
+                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                    src='/assets/imagenes/naufragio.png'>
+            </div>
+        </div>
+        <div class="row" fxLayoutAlign="center center">
+            <img *ngFor="let misil of juego.misiles" class="bomba" src="/assets/imagenes/bomba.png">
+        </div>
+        <div class="row" fxLayoutAlign="center center">
+            <button *ngIf="!enJuego" mat-raised-button color="primary" (click)="nuevoJuego()">Nuevo Juego</button>
+        </div>
+    </div>
+
+</div>

@@ -29,6 +29,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator'
 import {MatSortModule} from '@angular/material/sort';
 import {InputTextModule} from 'primeng/inputtext';
 
@@ -62,6 +63,8 @@ import { ListadoAnagramaComponent } from './componentes/listado-anagrama/listado
 import { ManejarUsuarioComponent } from './componentes/manejar-usuario/manejar-usuario.component';
 import { PerfilJugadorComponent } from './componentes/perfil-jugador/perfil-jugador.component';
 import { PerfilJugadorDialogComponent } from './componentes/perfil-jugador-dialog/perfil-jugador-dialog.component';
+import { BatallaNavalComponent } from './componentes/batalla-naval/batalla-naval.component';
+import { ListadoBatallaComponent } from './componentes/listado-batalla/listado-batalla.component';
 
 var config = {
   apiKey: "AIzaSyDrLUL-SiiyAvn2pppCY_GZfiLgahSGtUY",
@@ -104,7 +107,9 @@ var config = {
     ListadoAnagramaComponent,
     ManejarUsuarioComponent,
     PerfilJugadorComponent,
-    PerfilJugadorDialogComponent
+    PerfilJugadorDialogComponent,
+    BatallaNavalComponent,
+    ListadoBatallaComponent
   ],
   imports: [
     BrowserModule,
@@ -131,6 +136,7 @@ var config = {
     MatTabsModule,
     MatSelectModule,
     MatSortModule,
+    MatPaginatorModule,
     InputTextModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

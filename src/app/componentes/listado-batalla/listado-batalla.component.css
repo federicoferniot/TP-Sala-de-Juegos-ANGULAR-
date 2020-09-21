@@ -1,0 +1,11 @@
+table {
+    width: 80%;
+}
+
+.example-large-box {
+    align-items: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    min-height: 200px;
+}

@@ -19,11 +19,12 @@ import { AnagramaComponent } from 'app/componentes/anagrama/anagrama.component';
 import { AuthGuardService } from 'app/servicios/auth-guard.service';
 import { MisDatosComponent } from 'app/componentes/mis-datos/mis-datos.component';
 import { ManejarUsuarioComponent } from 'app/componentes/manejar-usuario/manejar-usuario.component';
+import { BatallaNavalComponent } from 'app/componentes/batalla-naval/batalla-naval.component';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-  { path: 'Recuperar', component: ManejarUsuarioComponent},
+  { path: 'Recuperar', component: ManejarUsuarioComponent },
   { path: 'Jugadores', canActivate: [AuthGuardService], component: JugadoresListadoComponent },
   { path: '', component: PrincipalComponent },
   { path: 'Login', component: LoginComponent },
@@ -31,7 +32,7 @@ const MiRuteo = [
   { path: 'Registro', component: RegistroComponent },
   { path: 'Principal', component: PrincipalComponent },
   { path: 'Listado', canActivate: [AuthGuardService], component: ListadoDeResultadosComponent },
-  { path: 'MisDatos', canActivate: [AuthGuardService], component: MisDatosComponent},
+  { path: 'MisDatos', canActivate: [AuthGuardService], component: MisDatosComponent },
 
   {
     path: 'Juegos',
@@ -44,7 +45,8 @@ const MiRuteo = [
       { path: 'Ppt', component: PptComponent },
       { path: 'Tateti', component: TatetiComponent },
       { path: 'Memoria', component: MemoriaComponent },
-      { path: 'Anagrama', component: AnagramaComponent }]
+      { path: 'Anagrama', component: AnagramaComponent },
+      { path: 'Batalla', component: BatallaNavalComponent }]
   },
   { path: '**', component: ErrorComponent },
   { path: 'error', component: ErrorComponent }];
