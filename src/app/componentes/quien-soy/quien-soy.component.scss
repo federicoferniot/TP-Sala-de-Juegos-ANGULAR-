@@ -2,32 +2,39 @@
     width: 100%;
    
     }
+
+.main{
+    width: 100%;
+}
 body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
+    font: Times, serif;
 }
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
-    background-color: #1abc9c; /* Green */
+    background-color: #1d3557; /* Green */
     color: #ffffff;
 }
 .bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
+    background-color: #457b9d; /* Dark Blue */
     color: #ffffff;
 }
 .bg-3 { 
-    background-color: #ffffff; /* White */
+    background-color: white; /* White */
     color: #555555;
 }
 .bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
+    background-color: #e63946; /* Black Gray */
     color: #fff;
 }
 .bg-5 {
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
+}
+
+.bg-6{
+    background-color: #a8dadc; /* Black Gray */
+    color: black;
 }
 .container-fluid {
     padding-top: 70px;
