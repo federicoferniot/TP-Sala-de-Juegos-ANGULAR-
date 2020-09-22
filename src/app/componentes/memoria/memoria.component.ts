@@ -48,7 +48,7 @@ export class MemoriaComponent implements OnInit {
           panelClass: 'notif-warn'
         });
       }
-    }, 500)
+    }, 1000)
   }
 
   ngOnInit(): void {
