@@ -27,7 +27,7 @@ export class PptComponent implements OnInit {
     let resultado = this.juego.verificar();
     if(resultado == null){
       this.snackBar.open("Empate!", "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-warn'
       });
     }
@@ -35,14 +35,14 @@ export class PptComponent implements OnInit {
       if(resultado){
         let puntosAOtorgar = 10;
         this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-success'
         });
         this.jugadorService.otorgarPuntosJugadorActual('ppt', puntosAOtorgar);
       }
       else{
         this.snackBar.open("Perdiste!", "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-warn'
         });
       }

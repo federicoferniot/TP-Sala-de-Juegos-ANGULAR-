@@ -32,12 +32,14 @@ export class JuegoMemoria extends Juego {
         this.gano = false;
         this.pensando = false;
         this.movimientos = 0;
+        this.primerOpcion = null;
+        this.segundaOpcion = null;
     }
 
     seSelecciona(indice) {
         this.girar(indice);
         this.pensando = true;
-        delay(1000).then(() => {
+        delay(800).then(() => {
             if (this.primerOpcion == null) {
                 this.primerOpcion = indice;
             }

@@ -28,13 +28,13 @@ export class AdivinaElNumeroComponent implements OnInit {
       let puntosAOtorgar = Math.floor(100/this.juego.intentos);
       this.jugadorService.otorgarPuntosJugadorActual('adivina', puntosAOtorgar);
       this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-success'
       });
 
     }else{
       this.snackBar.open("Incorrecto! Ayuda : "+this.juego.retornarAyuda(), "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-warn'
       });
     }

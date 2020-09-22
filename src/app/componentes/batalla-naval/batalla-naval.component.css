@@ -14,8 +14,17 @@
 }
 
 .bomba{
+    width: 10vw;
+    height: 10vw;
     max-height: 100px;
     max-width: 100px;
+}
+
+.barco{
+    max-height: 10vw;
+    min-width: 100px;
+    max-width: 10vw;
+    min-height: 100px;
 }
 
 .hover{

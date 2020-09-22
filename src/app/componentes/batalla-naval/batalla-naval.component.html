@@ -27,7 +27,7 @@
                 [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
                 (click)="atacar(indice)">
                 <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
-                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                <img class="barco" *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
                     src='/assets/imagenes/naufragio.png'>
             </div>
         </div>
@@ -36,7 +36,7 @@
                 [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
                 (click)="atacar(indice)">
                 <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
-                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                <img class="barco" *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
                     src='/assets/imagenes/naufragio.png'>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 [ngClass]="{'hover': !juego.grilla[indice].atacado, 'nohover': juego.grilla[indice].atacado}"
                 (click)="atacar(indice)">
                 <p *ngIf="!juego.grilla[indice].hayBarco && juego.grilla[indice].atacado">X</p>
-                <img *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
+                <img class="barco" *ngIf="juego.grilla[indice].hayBarco && juego.grilla[indice].atacado"
                     src='/assets/imagenes/naufragio.png'>
             </div>
         </div>

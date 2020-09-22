@@ -36,7 +36,7 @@ export class MemoriaComponent implements OnInit {
         clearInterval(this.contador);
         this.jugadorService.otorgarPuntosJugadorActual('memoria', puntosAOtorgar);
         this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-success'
         });
       }
@@ -44,11 +44,11 @@ export class MemoriaComponent implements OnInit {
         clearInterval(this.contador);
         this.juego.enJuego = false;
         this.snackBar.open("Perdiste!", "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-warn'
         });
       }
-    }, 1000)
+    }, 500)
   }
 
   ngOnInit(): void {

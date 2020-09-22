@@ -25,7 +25,7 @@ export class AnagramaComponent implements OnInit {
     if(this.juego.verificar()){
       let puntosAOtorgar = Math.floor(100/(3-this.juego.intentos));
       this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-success'
       });
       this.jugadorService.otorgarPuntosJugadorActual('anagrama', puntosAOtorgar);
@@ -33,13 +33,13 @@ export class AnagramaComponent implements OnInit {
     else{
       if(this.juego.enJuego){
         this.snackBar.open(`Incorrecto! Te quedan ${this.juego.intentos} intentos`, "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-warn'
         });
       }
       else{
         this.snackBar.open("Perdiste! :(", "X", {
-          duration: 2000,
+          duration: 3000,
           panelClass: 'notif-warn'
         });
       }

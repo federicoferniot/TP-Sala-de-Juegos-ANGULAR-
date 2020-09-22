@@ -3,7 +3,7 @@
     <div class="tabletop">
     </div>
     <div class="ball" fxLayoutAlign="center center">
-      <input [disabled]="!juego.enJuego" [(ngModel)]="juego.numeroIngresado" class="adivina" maxlength="10" placeholder="¿?">
+      <input [disabled]="!juego.enJuego" [(ngModel)]="juego.numeroIngresado" (keydown.enter)="verificar()" class="adivina" maxlength="10" placeholder="¿?">
     </div>
     <div class="stand"></div>
   </div>

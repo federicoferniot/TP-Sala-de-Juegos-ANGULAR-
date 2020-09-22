@@ -27,20 +27,20 @@ export class TatetiComponent implements OnInit {
     if(this.juego.ganador == this.juego.humano){
       let puntosAOtorgar = 50;
       this.snackBar.open(`Ganaste! Obtuviste ${puntosAOtorgar} puntos`, "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-success'
       });
       this.jugadorService.otorgarPuntosJugadorActual('tateti', puntosAOtorgar);
     }
     if(this.juego.ganador == this.juego.ia){
       this.snackBar.open("Perdiste! :(", "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-warn'
       });
     }
     if(this.juego.ganador == 'empate'){
       this.snackBar.open("Empate!", "X", {
-        duration: 2000,
+        duration: 3000,
         panelClass: 'notif-warn'
       });
     }
